@@ -3,8 +3,13 @@ import SelecaoRepository from "../repositories/SelecaoRepository.js";
 class SelecaoController {
   async index(req, res) {
     // res.status(200).send(selecoes)
-    const row = await SelecaoRepository.findAll();
-    res.json(row);
+    try {
+      const row = await SelecaoRepository.findAll();
+      res.json(row); 
+    } catch (error) {
+      console.error(error);
+     res.status(500).json({ erro: "Erro ao buscar seleções" });
+    }
   }
 
   async show(req, res) {
