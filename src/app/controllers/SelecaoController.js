@@ -8,7 +8,7 @@ class SelecaoController {
       res.json(row); 
     } catch (error) {
       console.error(error);
-     res.status(500).json({ erro: "Erro ao buscar seleções" });
+     res.status(500).json({ erro: error });
     }
   }
 
